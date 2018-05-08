@@ -1,13 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 
-const Home = () => {
-    return (
-        <div>
-            <h1>this is a test component</h1>
-        </div>
-    );
-};
+class Home extends Component {
+   
+    prop = {
+        name: 'bochen'
+    }
+    
+    render() {
+        return (
+            <div>
+                <h1>this is a test component</h1>
+            </div>
+        );
+    }
+}
 
 
 class App extends Component {
@@ -16,4 +23,4 @@ class App extends Component {
     }
 }
 
-ReactDom.render(<App/>, document.querySelector('#root'));
+ReactDom.render(<App />, document.querySelector('#root'));
