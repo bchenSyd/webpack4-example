@@ -19,9 +19,9 @@ module.exports = {
     }]
   },
   plugins:[
-    new ExternalsPlugin({
-      type: 'commonjs',
-      test:/node_modules/
-    })
+    // new ExternalsPlugin({
+    //   type: 'commonjs',
+    //   test:/node_modules/
+    // })
   ]
 };

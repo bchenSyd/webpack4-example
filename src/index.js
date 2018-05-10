@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDom from 'react-dom';
 
 class Home extends Component {
-   
+
     prop = {
-        name: 'bochen'
+        name: 'instance prop'
     }
-    
+
     render() {
         return (
             <div>
                 <h1>this is a test component</h1>
             </div>
         );
+    }
+
+   static PropTypes = {
+        name: PropTypes.string
     }
 }
 
