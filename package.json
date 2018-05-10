@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "export NODE_ENV='production'&& webpack",
-    "debug": "node --inspect-brk node_modules/.bin/webpack",
-    "lib": "babel src -d lib"
+    "build:lib": "babel src -d lib",
+    "debug": "node --inspect-brk node_modules/.bin/webpack"
   },
   "author": "",
   "license": "ISC",
