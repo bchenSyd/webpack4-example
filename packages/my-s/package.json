@@ -6,7 +6,8 @@
   "jsnext:main":"lib/index.js",
   "module": "lib/index.js",
   "scripts": {
-    "build": "babel *.js -d lib",
+    "build":"npm run clean && npm run build:es && npm run build:cmj",
+    "build:es": "babel *.js -d lib",
     "build:cmj":"rollup -c ../../rollup.config.js",
     "clean":"rm -rf dist lib"
   },

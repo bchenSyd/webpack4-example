@@ -33,11 +33,5 @@ module.exports = {
 
       callback();
     }
-  ],
-  plugins:[
-    // new ExternalsPlugin({
-    //   type: 'commonjs',
-    //   test:/node_modules/
-    // })
   ]
 };

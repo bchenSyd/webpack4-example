@@ -21,6 +21,7 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "my-lib": "^1.0.0"
+    "my-lib": "^1.0.0",
+    "my-s": "^1.0.0"
   }
 }

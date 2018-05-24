@@ -6,8 +6,8 @@
   "scripts": {
     "start": "lerna run start --scope my-website",
     "postinstall": "lerna bootstrap --hoist",
-    "build": "lerna run build",
-    "clean": "lerna clean --yes && rm -rf packages/**/dist"
+    "build": "lerna run clean&& lerna run build",
+    "clean": "lerna run clean &&lerna clean --yes"
   },
   "repository": {
     "type": "git",

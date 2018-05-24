@@ -1,2 +1,2 @@
-const getAge = () => 36;
-export default getAge;
+const getCity = () => 'get:city syndey';
+export default getCity;

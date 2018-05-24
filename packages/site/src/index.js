@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDom from 'react-dom';
 import { greeting } from 'my-lib';
-
+import suburb from 'my-s';
 
 class Home extends Component {
 
@@ -16,6 +16,7 @@ class Home extends Component {
             <div>
                 <h1>{greeting} !</h1>
                 <h1>{description}</h1>
+                <pre>suburb: {suburb}</pre>
                 <pre>{JSON.stringify(rest)}</pre>
             </div>
         );
