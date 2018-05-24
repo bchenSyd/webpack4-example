@@ -8,8 +8,9 @@
     "yargs": "^11.0.0"
   },
   "scripts": {
-	"postinstall": "lerna bootstrap --hoist",
-	"clean":"lerna clean"
+    "postinstall": "npm run build",
+    "build":"lerna bootstrap --hoist",
+    "clean": "lerna clean --yes && rm -rf packages/**/dist"
   },
   "repository": {
     "type": "git",

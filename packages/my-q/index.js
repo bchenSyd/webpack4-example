@@ -1,4 +1,4 @@
-export { default as getName } from './get-age';
+export { default as getAge } from './get-age';
 
 const city = 'sydney';
 export default city;

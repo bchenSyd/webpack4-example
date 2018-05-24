@@ -1,11 +1,11 @@
 {
   "name": "my-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "/coral",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "export NODE_ENV=production&& webpack",
+    "prepare": "export NODE_ENV=production&& webpack",
     "build:lib": "babel src -d lib",
     "debug": "node --inspect-brk node_modules/.bin/webpack"
   },
@@ -26,6 +26,6 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "my-p": "^1.0.0"
+    "my-lib": "^1.0.0"
   }
 }

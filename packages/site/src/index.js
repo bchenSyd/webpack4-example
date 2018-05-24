@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDom from 'react-dom';
-import greeting from 'my-p';
+import { greeting } from 'my-lib';
 
 
 class Home extends Component {
@@ -19,7 +19,7 @@ class Home extends Component {
         );
     }
 
-   static PropTypes = {
+    static PropTypes = {
         name: PropTypes.string
     }
 }
