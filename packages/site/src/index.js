@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDom from 'react-dom';
+import greeting from 'my-p';
+
 
 class Home extends Component {
 
@@ -11,6 +13,7 @@ class Home extends Component {
     render() {
         return (
             <div>
+                <h1>{greeting} !</h1>
                 <h1>this is a test component</h1>
             </div>
         );
