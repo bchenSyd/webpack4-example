@@ -1,0 +1,21 @@
+{
+  "name": "my-s",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "jsnext:main":"lib/index.js",
+  "module": "lib/index.js",
+  "scripts": {
+    "build": "babel *.js -d lib",
+    "build:cmj":"rollup -c ../../rollup.config.js",
+    "clean":"rm -rf dist lib"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "rollup": "^0.57.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^9.1.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

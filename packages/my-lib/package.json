@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "rollup -c ../../rollup.config.js --component my-lib"
+    "build": "rollup -c ../../rollup.config.js --component my-lib",
+    "clean":"rm -rf dist"
   },
   "dependencies": {
     "my-p":"^1.0.0",

@@ -11,10 +11,12 @@ class Home extends Component {
     }
 
     render() {
+        const { description, ...rest } = { description: 'this is a test component', version: 'v1.0' }
         return (
             <div>
                 <h1>{greeting} !</h1>
-                <h1>this is a test component</h1>
+                <h1>{description}</h1>
+                <pre>{JSON.stringify(rest)}</pre>
             </div>
         );
     }

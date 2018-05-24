@@ -3,15 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {
-    "chalk": "^2.4.1",
-    "lerna": "^3.0.0-beta.21",
-    "yargs": "^11.0.0"
-  },
   "scripts": {
-    "start":"lerna run start --scope my-website",
-    "postinstall": "npm run build",
-    "build": "lerna bootstrap --hoist",
+    "start": "lerna run start --scope my-website",
+    "postinstall": "lerna bootstrap --hoist",
+    "build": "lerna run build",
     "clean": "lerna clean --yes && rm -rf packages/**/dist"
   },
   "repository": {
@@ -23,5 +18,17 @@
   "bugs": {
     "url": "https://github.com/bochen2014/webpack4/issues"
   },
-  "homepage": "https://github.com/bochen2014/webpack4#readme"
+  "homepage": "https://github.com/bochen2014/webpack4#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "chalk": "^2.4.1",
+    "lerna": "^3.0.0-beta.21",
+    "yargs": "^11.0.0"
+  }
 }

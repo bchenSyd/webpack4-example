@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/bundle.js",
   "scripts": {
-    "prepare": "rollup -c ../../rollup.config.js --component my-q"
+    "build": "rollup -c ../../rollup.config.js --component my-q",
+    "clean":"rm -rf dist"
   },
   "devDependencies": {
     "rollup": "^0.57.0",
