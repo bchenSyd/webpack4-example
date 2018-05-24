@@ -1,3 +1,29 @@
+# minimum babel
+
+`npm i babel-core babel-loader babel-preset-env babel-preset-react -D`
+
+```json
+{
+    "presets": [
+        "env",
+        "react"
+    ]
+}
+```
+
+```json
+//package.json
+{
+    "scripts":{
+        "lib":"babel src/*.js -d lib"
+    }
+}
+
+```
+
+
+# webpack plugin
+
 ```
 $ webpack
 =========================================================================
@@ -23,13 +49,3 @@ Done in 0.98s.
 
 ```
 
-`npm i babel-core babel-loader babel-preset-env babel-preset-react -D`
-
-```json
-{
-    "presets": [
-        "env",
-        "react"
-    ]
-}
-```
