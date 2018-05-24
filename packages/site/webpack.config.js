@@ -3,7 +3,7 @@ const ExternalsPlugin = require('./plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/jannis.js',
+  entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
