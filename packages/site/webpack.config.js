@@ -1,4 +1,5 @@
 const path = require('path');
+const chalk = require('chalk');
 const ExternalsPlugin = require('./plugin');
 
 module.exports = {
@@ -18,6 +19,21 @@ module.exports = {
       }
     }]
   },
+  externals: [
+    function(context, request, callback) {
+      console.log(chalk.blue(' got a module request: '+ request))
+      if(/^(\.|\/|\!)$/.test(request)){
+        // internal files;
+        return callback();
+      }
+
+      if (/^your-external-lists$/.test(request)){
+        return callback(null, 'commonjs ' + request);
+      }
+
+      callback();
+    }
+  ],
   plugins:[
     // new ExternalsPlugin({
     //   type: 'commonjs',
