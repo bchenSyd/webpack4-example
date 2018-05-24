@@ -21,7 +21,7 @@ module.exports = {
   },
   externals: [
     function(context, request, callback) {
-      console.log(chalk.blue(' got a module request: '+ request))
+      console.log(chalk.blue(' got a module request: '+ request, 'context: '+ context))
       if(/^(\.|\/|\!)$/.test(request)){
         // internal files;
         return callback();
