@@ -5,5 +5,5 @@ const address = {
 };
 const { suburb, ...rest } = address;
 
-const getSuburb = () => 'get:suburb ' + suburb;
+const getSuburb = () => 'bochen:get-suburb ' + suburb;
 export default getSuburb;

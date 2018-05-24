@@ -10,6 +10,6 @@ var suburb = address.suburb,
     rest = _objectWithoutProperties(address, ['suburb']);
 
 var getSuburb = function getSuburb() {
-    return 'get:suburb ' + suburb;
+    return 'bochen:get-suburb ' + suburb;
 };
 export default getSuburb;

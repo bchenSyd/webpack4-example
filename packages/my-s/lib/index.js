@@ -1,4 +1,4 @@
-export { default as getSuburb } from './get-suburb';
+import suburb from './suburb';
 
-var suburb = "pennant hills";
 export default suburb;
+export { default as getSuburb } from './get-suburb';

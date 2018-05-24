@@ -1,2 +1,2 @@
-const getName = () => 'get:name bochen'
+const getName = () => 'bochen:get-name bochen'
 export default getName;
