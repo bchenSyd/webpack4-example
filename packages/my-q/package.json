@@ -1,10 +1,10 @@
 {
-  "name": "my-p",
+  "name": "my-q",
   "version": "1.0.0",
   "description": "",
   "main": "dist/bundle.js",
   "scripts": {
-    "prepare": "rollup -c ../../rollup.config.js  --component my-p"
+    "prepare": "rollup -c ../../rollup.config.js --component my-q"
   },
   "devDependencies": {
     "rollup": "^0.57.0",

@@ -1,4 +1,4 @@
-export { default as getName } from './getname';
+export { default as getName } from './get-name';
 
 const greeting = 'hello,world';
 export default greeting;
