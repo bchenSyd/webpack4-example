@@ -1,37 +1,42 @@
-const path = require('path');
-const chalk = require('chalk');
-const ExternalsPlugin = require('./plugin');
+const path = require("path");
+const chalk = require("chalk");
+const ExternalsPlugin = require("./plugin");
 
 module.exports = {
-  mode: 'production',
-  entry: './src/index.js',
+  mode: "development",
+  entry: "./src/index.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/"
   },
-  module:{
-    rules:[{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      use:{
-        loader: 'babel-loader'
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
       }
-    }]
+    ]
   },
   externals: [
     function(context, request, callback) {
-      console.log(chalk.blue(' got a module request: '+ request, 'context: '+ context))
-      if(/^(\.|\/|\!)$/.test(request)){
+      // console.log(chalk.blue(' got a module request: '+ request, 'context: '+ context))
+      if (/^(\.|\/|\!)$/.test(request)) {
         // internal files;
         return callback();
       }
 
-      if (/^your-external-lists$/.test(request)){
-        return callback(null, 'commonjs ' + request);
+      if (/^your-external-lists$/.test(request)) {
+        return callback(null, "commonjs " + request);
       }
 
       callback();
     }
-  ]
+  ],
+  devServer: {
+    disableHostCheck: true
+  }
 };

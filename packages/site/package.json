@@ -4,7 +4,7 @@
   "description": "/coral",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --host 0.0.0.0",
     "build": "export NODE_ENV=production&& webpack",
     "build:lib": "babel src -d lib",
     "debug": "node --inspect-brk node_modules/.bin/webpack",
@@ -23,6 +23,7 @@
     "react-dom": "^16.3.2",
     "my-lib": "^1.0.0",
     "my-s": "^1.0.0",
-    "recompose":"^0.27.1"
+    "recompose":"^0.27.1",
+    "hoist-non-react-statics":"^2.5.0"
   }
 }
