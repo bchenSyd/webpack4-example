@@ -1,32 +1,34 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ReactDom from 'react-dom';
-import { greeting } from 'my-lib';
-import suburb from 'my-s';
-import WithDemo from '../HOCs/with-Demo';
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import ReactDom from "react-dom";
+import { greeting } from "my-lib";
+import suburb from "my-s";
+import WithDemo from "../HOCs/with-Demo";
+import { compose, withState } from "recompose";
 
 export class Home extends Component {
+  prop = {
+    name: "instance prop"
+  };
 
-    prop = {
-        name: 'instance prop'
-    }
+  render() {
+    const { extra, counter, ...rest } = this.props
+    return [
+      <div key='_key1'>
+        <h1>{greeting} !</h1>
+        <pre>suburb: {suburb}</pre>
 
-    render() {
-        const { description, ...rest } = { description: 'this is a test component', version: 'v1.0' }
-        return (
-            <div>
-                <h1>{greeting} !</h1>
-                <h1>{description}</h1>
-                <pre>suburb: {suburb}</pre>
-                <pre>{JSON.stringify(rest)}</pre>
-            </div>
-        );
-    }
+        <h2>from HOC :{extra}</h2>
+      </div>,
+      <div key='_key2' style={{ marginTop: "10px" }}>counter: {counter}</div>
+    ];
+  }
 
-    static propTypes = {
-        name: PropTypes.string
-    }
+  static propTypes = {
+    name: PropTypes.string
+  };
 }
 
-export default WithDemo(Home);
+// right to left ; same as Ramda::compose "Performs right-to-left function composition."
+const enhance = compose(WithDemo, withState("counter", "setCounter", 10));
+export default enhance(Home);
