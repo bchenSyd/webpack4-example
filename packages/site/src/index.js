@@ -5,7 +5,7 @@ import Home from './components/Home';
 
 class App extends Component {
     render() {
-        return <Home />;
+        return <Home extra="from owner"/>;
     }
 }
 
