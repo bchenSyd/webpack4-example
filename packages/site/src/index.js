@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import Home from './components/Home';
-
+import React, { Component } from "react";
+import ReactDom from "react-dom";
+import Home from "./components/Home";
+import Counter from "./components/counter";
 
 class App extends Component {
-    render() {
-        return <Home extra="from owner"/>;
-    }
+  render() {
+    return (
+      <div>
+        <Home extra="from owner" />
+        <Counter />
+      </div>
+    );
+  }
 }
 
-ReactDom.render(<App />, document.querySelector('#root'));
+ReactDom.render(<App />, document.querySelector("#root"));
