@@ -14,7 +14,8 @@ const Counter = componentFromStream(props$ => {
   const { handler: decrement, stream: decrement$ } = createEventHandler();
   const count$ = increment$.mapTo(1)
     .merge(decrement$.mapTo(-1))
-    // merge: similar to combineLatest, will relay the value whichever observables emitts;
+    // merge: similar to combineLatest, but won't combine; 
+    // so Observable<T> must merge with another Observable that contains (emits) the same data type
     .map( (args)=>{
         return args;
     })
