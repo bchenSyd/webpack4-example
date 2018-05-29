@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "lerna run start --scope my-website",
-    "postinstall": "lerna bootstrap --hoist --ci",
+    "postinstall": "npm run bootstrap",
+    "bootstrap": "lerna bootstrap --hoist --ci",
     "build": "lerna run clean&& lerna run build",
     "clean": "lerna run clean &&lerna clean --yes"
   },

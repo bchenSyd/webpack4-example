@@ -1,6 +1,5 @@
 import React, { Component, createElement } from "react";
-import hoistNonReactStatic from "hoist-non-react-statics";
-import { wrapDisplayName } from "recompose";
+import { wrapDisplayName, hoistStatics } from "recompose";
 
 export default function wrapWithDemo(WrappedComponent) {
   class WithTest extends Component {
@@ -25,5 +24,7 @@ export default function wrapWithDemo(WrappedComponent) {
   WithTest.WrappedComponent = WrappedComponent;
   WithTest.displayName = wrapDisplayName(WrappedComponent, "with-demo");
   // https://reactjs.org/docs/higher-order-components.html#static-methods-must-be-copied-over
-  return hoistNonReactStatic(WithTest, WrappedComponent);
+  return hoistStatics(() => WithTest, {} /*empty blackklist*/)(
+    WrappedComponent
+  );
 }
