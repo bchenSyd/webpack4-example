@@ -1,5 +1,6 @@
 const path = require("path");
 const chalk = require("chalk");
+const webpack = require('webpack');
 const ExternalsPlugin = require("./plugin");
 
 module.exports = {
@@ -36,10 +37,21 @@ module.exports = {
       callback();
     }
   ],
+  plugins:[
+    new webpack.HotModuleReplacementPlugin() //required when run from wds cli
+  ],
   devServer: {
     disableHostCheck: true,
     host:"0.0.0.0",
     port: 8080,
-    historyApiFallback: true
+    historyApiFallback: true,
+
+    //#######################################################################
+    //> https://github.com/webpack/webpack/issues/1151#issuecomment-343800515 
+    hot: true, // if you set `hot` to true within `devServer` section and run `webpack-dev-server` cli, you must
+    // either `new webpack.HotModuleReplacementPlugin()` 
+    // or, 
+    // put `--hot` in cli options (which instruct wds to auto insert a HMRPlugin into your webpac.config.js)
+    //#######################################################################
   }
 };
