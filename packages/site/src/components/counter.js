@@ -3,7 +3,7 @@ import rxjsConfig from "recompose/rxjsObservableConfig";
 import {
   componentFromStreamWithConfig,
   createEventHandlerWithConfig,
-  mapPropsStreamWithConfig,
+  mapPropsStreamWithConfig
 } from "recompose";
 
 //symbol-observable doesn't implement rich set of stream transformation methods; so we need to use rxjs instead;
