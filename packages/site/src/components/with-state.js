@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
     withState,
     withHandlers,
@@ -23,14 +23,30 @@ const BaseComponent1 = ({ count, updateCount }) => (
 export const WithStateWrapped1 = withState('count', 'updateCount', 0)(BaseComponent1);
 
 
-const BaseComponent = ({ count, increase, decrease, reset }) => (
-    <div>
-        <label>count: {count} </label>
-        <button onClick={increase}>+</button>
-        <button onClick={decrease}>-</button>
-        <button onClick={reset}>reset</button>
-    </div>
-)
+class BaseComponent extends Component {
+    componentWillReceiveProps(nextProps) {
+        const { time, increase, decrease, reset } = this.props;
+        const { time: timeNext, increase: increaseNext } = nextProps;
+        console.log('time equal?', time === timeNext);
+        console.log('with-handlers equal?', increase === increaseNext)
+    }
+
+    render() {
+        const { time, count, increase, decrease, reset } = this.props;
+        return <div style={{ border: "1px solid green" , padding: '10px'}}>
+            <div>
+                from owner props. {'{'}  time: {time} {'}'}
+            </div>
+            <div>
+                <label>count: {count} </label>
+                <button onClick={increase}>+</button>
+                <button onClick={decrease}>-</button>
+                <button onClick={reset}>reset</button>
+            </div>
+
+        </div>
+    }
+}
 
 const enhance = compose(
     withState('count', 'updateCount', 0),

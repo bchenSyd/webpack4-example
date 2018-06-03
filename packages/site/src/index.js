@@ -7,7 +7,7 @@ import CounterComposed from "./components/counter-composed";
 
 class App extends Component {
   state={
-    time: 0
+    time: Date.now()
   };
 
   onClick = ()=>{

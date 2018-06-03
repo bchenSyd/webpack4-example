@@ -14,7 +14,7 @@ export default function wrapWithDemo(WrappedComponent) {
       return (
         <div>
           <div> with-demo HOC </div>
-          <div style={{ border: "1px solid red" }}>
+          <div style={{ border: "1px solid red", padding: '10px' }}>
             {createElement(WrappedComponent, this.addExtraProps())}
           </div>
         </div>
