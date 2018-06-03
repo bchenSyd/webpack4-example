@@ -6,16 +6,27 @@ import Counter from "./components/counter";
 import CounterComposed from "./components/counter-composed";
 
 class App extends Component {
+  state={
+    time: 0
+  };
+
+  onClick = ()=>{
+    this.setState({
+      time: Date.now()
+    })
+  }
   render() {
+    const { time } = this.state;
     return (
       <div>
-        <Home extra="from owner" />
+        <button onClick={this.onClick} >update Owner props</button>
+        <Home extra="from owner" time={time }/>
         <br />
-        <WithState />
+        <WithState time={time }/>
         <br />
-        <Counter />
+        <Counter time={time }/>
         <br />
-        <CounterComposed />
+        <CounterComposed time={time }/>
       </div>
     );
   }
