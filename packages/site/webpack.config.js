@@ -1,6 +1,7 @@
 const path = require("path");
 const chalk = require("chalk");
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExternalsPlugin = require("./plugin");
 
 module.exports = {
@@ -38,6 +39,9 @@ module.exports = {
     }
   ],
   plugins:[
+    new HtmlWebpackPlugin({
+      title:'recompose example'
+    }),
     new webpack.HotModuleReplacementPlugin() //required when run from wds cli
   ],
   devServer: {

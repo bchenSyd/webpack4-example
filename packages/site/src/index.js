@@ -6,11 +6,11 @@ import Counter from "./components/counter";
 import CounterComposed from "./components/counter-composed";
 
 class App extends Component {
-  state={
+  state = {
     time: Date.now()
   };
 
-  onClick = ()=>{
+  onClick = () => {
     this.setState({
       time: Date.now()
     })
@@ -20,16 +20,19 @@ class App extends Component {
     return (
       <div>
         <button onClick={this.onClick} >update Owner props</button>
-        <Home extra="from owner" time={time }/>
+        <Home extra="from owner" time={time} />
         <br />
-        <WithState time={time }/>
+        <WithState time={time} />
         <br />
-        <Counter time={time }/>
+        <Counter time={time} />
         <br />
-        <CounterComposed time={time }/>
+        <CounterComposed time={time} />
       </div>
     );
   }
 }
 
+const root = document.createElement('div');
+root.id = 'root';
+document.body.appendChild(root);
 ReactDom.render(<App />, document.querySelector("#root"));
