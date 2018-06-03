@@ -25,7 +25,7 @@ export default function wrapWithDemo(WrappedComponent) {
   WithTest.displayName = wrapDisplayName(WrappedComponent, "with-demo");
   // https://reactjs.org/docs/higher-order-components.html#static-methods-must-be-copied-over
   // the first para is an HOC function, which means it can't be composed like others
-  return hoistStatics(() => WithTest, {} /*empty blackklist*/)(
+  return hoistStatics(() => WithTest, {} /*empty blacklist*/)(
     WrappedComponent
   );
 }
