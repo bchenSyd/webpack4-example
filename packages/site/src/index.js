@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom";
 import Home from "./components/Home";
+import { WithStateWrapped2 as WithState } from './components/with-state';
 import Counter from "./components/counter";
 import CounterComposed from "./components/counter-composed";
 
@@ -9,9 +10,11 @@ class App extends Component {
     return (
       <div>
         <Home extra="from owner" />
-        <br/>
+        <br />
+        <WithState />
+        <br />
         <Counter />
-        <br/>
+        <br />
         <CounterComposed />
       </div>
     );
