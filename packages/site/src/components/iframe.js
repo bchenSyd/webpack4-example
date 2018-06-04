@@ -1,15 +1,25 @@
-import React from "react";
+import React, { Component, createRef } from "react";
 
-const IFrameWrapper = () => {
+const IFrameWrapper = ({ frameSource }) => {
+  const iframeRef = createRef();
+  const onLoad = () => {
+    const frame = iframeRef.current;
+    frame.contentWindow.onResize = (height) => {
+      console.log(' iframe height is now ', height)
+      frame.height = '';
+      frame.height = height + 'px';
+    }
+  }
   return (
     <div>
       <iframe
         title="coral-nested-iframe"
         frameBorder="0"
-        src="http://localhost:8081"
+        src={frameSource}
         scrolling="no"
         width="100%"
-        height="500px"
+        ref={iframeRef}
+        onLoad={onLoad}
       />
     </div>
   );

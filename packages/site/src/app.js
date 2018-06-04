@@ -70,7 +70,8 @@ const App = () => {
             path="/streamed-composed"
             component={CounterStreamedComposed}
           />
-          <Route path="/iframe" component={Iframe} />
+          <Route path="/iframe" render={
+            props=><Iframe frameSource='/greenid'/>} />
         </Switch>
       </div>
       <footer className="header-footer">

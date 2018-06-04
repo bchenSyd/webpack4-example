@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExternalsPlugin = require("./plugin");
 
 module.exports = {
@@ -85,7 +86,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'recompose example'
     }),
-    new webpack.HotModuleReplacementPlugin() //required when run from wds cli
+    new webpack.HotModuleReplacementPlugin(), //required when run from wds cli
+    new CopyWebpackPlugin([{
+      from:'greenId',
+      to:'greenid'
+    }])
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.less']

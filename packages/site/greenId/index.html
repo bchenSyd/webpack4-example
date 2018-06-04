@@ -7,6 +7,9 @@
             <h1>this is the detailed content</h1>
     </div>
     <script>
+    function onResize(){
+         throw "don't implement me; provided by host window";
+    }
     function onToggle(){
         var dom = document.querySelector('#content');
         if(dom.style.display === 'none'){
@@ -14,6 +17,7 @@
         }else{
             dom.style.display = 'none';
         }
+        onResize(document.body.scrollHeight);
     }
     </script>
 </body>
