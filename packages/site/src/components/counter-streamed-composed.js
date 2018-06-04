@@ -46,6 +46,6 @@ const transformB = propsA$ /* B handle result of transformA */ => {
   }))
 }
 
-const CounterComposed = mapPropsStream(compose(transformB, transformA))(baseComponent);
+const CounterStreamedComposed = mapPropsStream(compose(transformB, transformA))(baseComponent);
 
-export default CounterComposed;
+export default CounterStreamedComposed;

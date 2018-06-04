@@ -20,6 +20,24 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader",
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [
+                  autoprefixer({
+                    browsers: ['last 2 versions']
+                  })
+                ]
+              }
+            },
+            "less-loader"]
+        })
       }
     ]
   },

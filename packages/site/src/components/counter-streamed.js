@@ -41,7 +41,7 @@ render() {
 */
 
 // stream transform is invoked by Wrapper::CWM and Wrapper::CWR
-const Counter = mapPropsStream(  props$ /*raw props stream: built in Wrapper Component's consturctor*/  => {
+const CounterStreamed = mapPropsStream(  props$ /*raw props stream: built in Wrapper Component's consturctor*/  => {
   const { handler: increment, stream: increment$ } = createEventHandler();
   const { handler: decrement, stream: decrement$ } = createEventHandler();
   const count$ = increment$.mapTo(1)
@@ -62,4 +62,4 @@ const Counter = mapPropsStream(  props$ /*raw props stream: built in Wrapper Com
   }))
 })(baseComponent);
 
-export default Counter;
+export default CounterStreamed;
