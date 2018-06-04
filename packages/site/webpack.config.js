@@ -1,6 +1,8 @@
 const path = require("path");
 const chalk = require("chalk");
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExternalsPlugin = require("./plugin");
 
@@ -23,26 +25,45 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ["css-loader",
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: [
-                  autoprefixer({
-                    browsers: ['last 2 versions']
-                  })
-                ]
-              }
-            },
-            "less-loader"]
-        })
-      }
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                autoprefixer({
+                  browsers: ['last 2 versions']
+                })
+              ]
+            }
+          },
+          "less-loader"]
+      },
+      {
+        test: /\.(jpe?g|gif|png|svg)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            fallback: 'file-loader',
+            limit: 10000,
+            minetype: 'image/svg+xml',
+          },
+        }],
+      },
+      {
+        test: /\.(ico)|((ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|eot)$/i,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+          }
+        }]
+      },
     ]
   },
   externals: [
-    function(context, request, callback) {
+    function (context, request, callback) {
       // console.log(chalk.blue(' got a module request: '+ request, 'context: '+ context))
       if (/^(\.|\/|\!)$/.test(request)) {
         // internal files;
@@ -56,15 +77,22 @@ module.exports = {
       callback();
     }
   ],
-  plugins:[
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
     new HtmlWebpackPlugin({
-      title:'recompose example'
+      title: 'recompose example'
     }),
     new webpack.HotModuleReplacementPlugin() //required when run from wds cli
   ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.less']
+  },
   devServer: {
     disableHostCheck: true,
-    host:"0.0.0.0",
+    host: "0.0.0.0",
     port: 8080,
     historyApiFallback: true,
 

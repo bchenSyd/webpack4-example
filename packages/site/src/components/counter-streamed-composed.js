@@ -28,7 +28,7 @@ const transformA /* inject counter stream*/ = props$ => {
     .map((args) => {
       return args;
     })
-    .startWith(0)
+    .startWith(1)
     .scan((count, n) => count + n, 0);
 
   return props$.combineLatest(count$, (props, count) => ({

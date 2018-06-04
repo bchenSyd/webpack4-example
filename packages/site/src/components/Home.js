@@ -4,7 +4,13 @@ import ReactDom from "react-dom";
 import { greeting } from "my-lib";
 import suburb from "my-s";
 import withDemo from "../HOCs/with-Demo";
-import { mapProps, withProps, defaultProps, compose, flattenProp } from "recompose";
+import {
+  mapProps,
+  withProps,
+  defaultProps,
+  compose,
+  flattenProp
+} from "recompose";
 
 export class Home extends Component {
   prop = {

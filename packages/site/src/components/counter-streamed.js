@@ -51,7 +51,7 @@ const CounterStreamed = mapPropsStream(  props$ /*raw props stream: built in Wra
     .map((args) => {
       return args;
     })
-    .startWith(0)
+    .startWith(1)
     // reducer
     .scan((count, n) => count + n, 0);
   return props$.combineLatest(count$, (props, count) => /*transformed stream*/ ({
