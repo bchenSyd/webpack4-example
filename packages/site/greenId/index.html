@@ -1,9 +1,12 @@
 <html>
 
-<head>sample page</head>
+<head>
+    <meta charset="UTF-8">
+    <title>sample</title>
+</head>
 
-<body>
-    <div id='root' style="padding: 20px;">
+<body style="margin:0;">
+    <div id='root'>
         <h1>this is nested page</h1>
         <button onclick="onToggle()">toggle content</button>
         <div id="content" style="height: 500px; display:none; border: 4px solid green; margin: 10px; padding: 40px;">
@@ -22,7 +25,7 @@
             } else {
                 dom.style.display = 'none';
             }
-            onResize(document.querySelector('#root').scrollHeight + 20 /*padding*/ );
+            onResize(document.querySelector('#root').scrollHeight);
         }
     </script>
 </body>
