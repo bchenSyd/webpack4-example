@@ -1,24 +1,30 @@
 <html>
+
 <head>sample page</head>
-<body style="padding: 20px;">
-    <h1>this is nested page</h1>
-    <button onclick="onToggle()">toggle content</button>
-    <div id="content" style="height: 500px; display:none; border: 4px solid green; margin: 10px; padding: 40px;">
+
+<body>
+    <div id='root' style="padding: 20px;">
+        <h1>this is nested page</h1>
+        <button onclick="onToggle()">toggle content</button>
+        <div id="content" style="height: 500px; display:none; border: 4px solid green; margin: 10px; padding: 40px;">
             <h1>this is the detailed content</h1>
+        </div>
+
     </div>
     <script>
-    function onResize(){
-         throw "don't implement me; provided by host window";
-    }
-    function onToggle(){
-        var dom = document.querySelector('#content');
-        if(dom.style.display === 'none'){
-            dom.style.display = 'block';
-        }else{
-            dom.style.display = 'none';
+        function onResize() {
+            throw "don't implement me; provided by host window";
         }
-        onResize(document.body.scrollHeight);
-    }
+        function onToggle() {
+            var dom = document.querySelector('#content');
+            if (dom.style.display === 'none') {
+                dom.style.display = 'block';
+            } else {
+                dom.style.display = 'none';
+            }
+            onResize(document.querySelector('#root').scrollHeight + 20 /*padding*/ );
+        }
     </script>
 </body>
+
 </html>
