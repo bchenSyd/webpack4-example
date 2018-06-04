@@ -4,6 +4,9 @@ const IFrameWrapper = ({ frameSource }) => {
   const iframeRef = createRef();
   const onLoad = () => {
     const frame = iframeRef.current;
+    const initHeight = frame.contentWindow.document.querySelector('#root').scrollHeight + 'px';
+    frame.height = initHeight;
+    console.log(' iframe height initial  ', initHeight);
     frame.contentWindow.onResize = (height) => {
       console.log(' iframe height is now ', height)
       frame.height = '';
