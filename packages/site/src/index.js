@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom";
-import Home from "./components/Home";
-import Counter from "./components/counter";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import App from './app';
+import './styles/index.less';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Home extra="from owner" />
-        <Counter />
-      </div>
-    );
-  }
-}
-
-ReactDom.render(<App />, document.querySelector("#root"));
+const root = document.createElement("div");
+root.id = "root";
+document.body.appendChild(root);
+ReactDom.render(
+  <Router>
+    <Route component={App} />
+  </Router>,
+  document.querySelector("#root")
+);

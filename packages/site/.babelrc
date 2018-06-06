@@ -3,6 +3,14 @@
         [
             "env",
             {
+                "targets": {
+                    "browsers": [
+                        "last 2 versions",
+                        "safari >= 7"
+                    ]
+                },
+                // let webpack use its won esm system; default value = commonjs
+                // which cause babel to convert esm into commonjs and them import
                 "modules": false
             }
         ],
