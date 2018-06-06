@@ -88,7 +88,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(), //required when run from wds cli
     new CopyWebpackPlugin([{
-      from:'greenId',
+      from:'greenId-internal',
       to:'greenid'
     }])
   ],
@@ -98,7 +98,7 @@ module.exports = {
   devServer: {
     disableHostCheck: true,
     host: "0.0.0.0",
-    port: 8080,
+    port: 8082,
     historyApiFallback: true,
 
     //#######################################################################

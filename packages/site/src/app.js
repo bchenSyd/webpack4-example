@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link, Switch, Route } from "react-router-dom";
-import logo from './styles/logo.svg'
+import logo from "./styles/logo.svg";
 import Home from "./components/Home";
 import WithState from "./components/with-state";
 import WithHandlers from "./components/with-handlers";
 import CounterStreamed from "./components/counter-streamed";
 import CounterStreamedComposed from "./components/counter-streamed-composed";
-import Iframe from "./components/iframe";
+import IframeInternal from "./components/iframe-internal";
+import IframeExternal from "./components/iframe-external";
 
 const Links = () => (
   <ul>
@@ -26,13 +27,18 @@ const Links = () => (
       <Link to="/streamed-composed">mapPropsStream</Link>
     </li>
     <li>
-      <Link to="/iframe">iframe</Link>
+      <Link to="/iframe-internal">iframe internal</Link>
+    </li>
+    <li>
+      <Link to="/iframe-external">iframe postmessage</Link>
     </li>
   </ul>
 );
 const App = () => {
+  //const externalUrl = 'https://protectedapps-test.authbridge-nonprod.westpacgroup.com/rbdev3_sso/start.swe?SWECmd=GetApplet&SWEApplet=WBC+Activity+Form+Applet+-+BD&IsPortlet=1&SWESM=Edit&KeepAlive=1&BCField0=Id&BCFieldValue0=abcde&Scenario=NewToDo'
+  const externalUrl = "http://localhost:8083";
   return (
-    <div className='app'>
+    <div className="app">
       <header className="header-footer">
         <img src={logo} className="logo" alt="logo" />
         <h1 className="app-title">Welcome to React</h1>
@@ -42,36 +48,46 @@ const App = () => {
         <Switch location={location}>
           <Route exact path="/" component={Home} />
           <Route path="/withstate" component={WithState} />
-          <Route path="/with-handlers" render={
-            props => {
+          <Route
+            path="/with-handlers"
+            render={props => {
               // can't use a stateless component as it can't be force updated;
               // (can't proactively update itself)
               class Wrapper extends Component {
                 state = {
                   time: Date.now()
-                }
+                };
                 onClick = () => {
                   this.setState({
                     time: Date.now()
-                  })
-                }
+                  });
+                };
                 render() {
-                  return <div>
-                    <button onClick={this.onClick} >udpate</button>
-                    <WithHandlers time={this.state.time} />
-                  </div>
+                  return (
+                    <div>
+                      <button onClick={this.onClick}>udpate</button>
+                      <WithHandlers time={this.state.time} />
+                    </div>
+                  );
                 }
               }
 
-              return <Wrapper />
-            }} />
+              return <Wrapper />;
+            }}
+          />
           <Route path="/streamed" component={CounterStreamed} />
           <Route
             path="/streamed-composed"
             component={CounterStreamedComposed}
           />
-          <Route path="/iframe" render={
-            props=><Iframe frameSource='/greenid'/>} />
+          <Route
+            path="/iframe-internal"
+            render={props => <IframeInternal frameSource="/greenid" />}
+          />
+          <Route
+            path="/iframe-external"
+            render={props => <IframeExternal frameSource={externalUrl} />}
+          />
         </Switch>
       </div>
       <footer className="header-footer">

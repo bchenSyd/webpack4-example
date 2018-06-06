@@ -1,6 +1,6 @@
 import React, { Component, createRef } from "react";
 
-const IFrameWrapper = ({ frameSource }) => {
+const IFrameWrapperInternal = ({ frameSource }) => {
   const iframeRef = createRef();
   const onLoad = () => {
     const frame = iframeRef.current;
@@ -28,4 +28,4 @@ const IFrameWrapper = ({ frameSource }) => {
   );
 };
 
-export default IFrameWrapper;
+export default IFrameWrapperInternal;
