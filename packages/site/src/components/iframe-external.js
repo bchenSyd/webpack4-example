@@ -18,7 +18,6 @@ class IFrameWrapper extends Component {
     const {
       data: { message, value }
     } = e;
-   // debugger;
     switch (message) {
       case "setHeight":
         frame.height = value + "px";
