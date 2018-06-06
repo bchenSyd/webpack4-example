@@ -22,6 +22,11 @@ class IFrameWrapper extends Component {
       case "setHeight":
         frame.height = value + "px";
         break;
+      case "complete": {
+        const { history } = this.props;
+        history.push("/");
+        break;
+      }
     }
   };
   render() {

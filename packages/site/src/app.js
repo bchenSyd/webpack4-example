@@ -82,11 +82,11 @@ const App = () => {
           />
           <Route
             path="/iframe-internal"
-            render={props => <IframeInternal frameSource="/greenid" />}
+            render={props => <IframeInternal {...props} frameSource="/greenid" />}
           />
           <Route
             path="/iframe-external"
-            render={props => <IframeExternal frameSource={externalUrl} />}
+            render={props => <IframeExternal {...props} frameSource={externalUrl} />}
           />
         </Switch>
       </div>
