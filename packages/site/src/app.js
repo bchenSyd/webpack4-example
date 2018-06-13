@@ -34,7 +34,7 @@ const Links = () => (
     </li>
   </ul>
 );
-const App = () => {
+const App = ({location}) => {
   //const externalUrl = 'https://protectedapps-test.authbridge-nonprod.westpacgroup.com/rbdev3_sso/start.swe?SWECmd=GetApplet&SWEApplet=WBC+Activity+Form+Applet+-+BD&IsPortlet=1&SWESM=Edit&KeepAlive=1&BCField0=Id&BCFieldValue0=abcde&Scenario=NewToDo'
   const externalUrl = "http://localhost:8083";
   return (
