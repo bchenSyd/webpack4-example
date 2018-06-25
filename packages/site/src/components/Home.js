@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ReactDom from "react-dom";
 import { greeting } from "my-lib";
 import suburb from "my-s";
-import withDemo from "../HOCs/with-Demo";
+import withDemo from "@coral/HOCs/with-Demo";
 import {
   mapProps,
   withProps,

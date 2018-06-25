@@ -103,7 +103,10 @@ module.exports = {
     ])
   ],
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".less"]
+    extensions: [".js", ".jsx", ".json", ".less"],
+    alias: {
+      "@coral": path.resolve(__dirname, "src")
+    }
   },
   devServer: {
     disableHostCheck: true,
