@@ -77,7 +77,7 @@ module.exports = {
       }
 
       if (/^your-external-lists$/.test(request)) {
-        return callback(null, "commonjs " + request);
+        return callback(null, `commonjs ${request}`);
       }
 
       callback();
@@ -94,7 +94,7 @@ module.exports = {
         viewport: "width=device-width, initial-scale=1, shrink-to-fit=no"
       }
     }),
-    new webpack.HotModuleReplacementPlugin(), //required when run from wds cli
+    new webpack.HotModuleReplacementPlugin(), // required when run from wds cli
     new CopyWebpackPlugin([
       {
         from: "greenId-internal",
@@ -114,12 +114,12 @@ module.exports = {
     port: 8082,
     historyApiFallback: true,
 
-    //#######################################################################
-    //> https://github.com/webpack/webpack/issues/1151#issuecomment-343800515
+    // #######################################################################
+    // > https://github.com/webpack/webpack/issues/1151#issuecomment-343800515
     hot: true // if you set `hot` to true within `devServer` section and run `webpack-dev-server` cli, you must
     // either `new webpack.HotModuleReplacementPlugin()`
     // or,
     // put `--hot` in cli options (which instruct wds to auto insert a HMRPlugin into your webpac.config.js)
-    //#######################################################################
+    // #######################################################################
   }
 };

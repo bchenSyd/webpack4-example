@@ -4,10 +4,10 @@ import {
   componentFromStreamWithConfig,
   createEventHandlerWithConfig,
   mapPropsStreamWithConfig,
-  compose,
+  compose
 } from "recompose";
 
-//symbol-observable doesn't implement rich set of stream transformation methods; so we need to use rxjs instead;
+// symbol-observable doesn't implement rich set of stream transformation methods; so we need to use rxjs instead;
 const componentFromStream = componentFromStreamWithConfig(rxjsConfig);
 const mapPropsStream = mapPropsStreamWithConfig(rxjsConfig);
 const createEventHandler = createEventHandlerWithConfig(rxjsConfig);
@@ -17,17 +17,16 @@ const baseComponent = ({ count, increment, decrement, ...rest }) => (
     Count: {count}
     <button onClick={increment}>+</button>
     <button onClick={decrement}>-</button>
-  </div>);
+  </div>
+);
 
-
-const transformA /* inject counter stream*/ = props$ => {
+const transformA /* inject counter stream */ = props$ => {
   const { handler: increment, stream: increment$ } = createEventHandler();
   const { handler: decrement, stream: decrement$ } = createEventHandler();
-  const count$ = increment$.mapTo(1)
+  const count$ = increment$
+    .mapTo(1)
     .merge(decrement$.mapTo(-1))
-    .map((args) => {
-      return args;
-    })
+    .map(args => args)
     .startWith(1)
     .scan((count, n) => count + n, 0);
 
@@ -36,16 +35,20 @@ const transformA /* inject counter stream*/ = props$ => {
     count,
     increment,
     decrement
-  }))
-}
+  }));
+};
 
-const transformB = propsA$ /* B handle result of transformA */ => {
-  return propsA$.map(({ count, ...rest }) => ({
+const transformB = (propsA$) /* B handle result of transformA */ =>
+  propsA$.map(({ count, ...rest }) => ({
     count: count * 2,
     ...rest
-  }))
-}
+  }));
 
-const CounterStreamedComposed = mapPropsStream(compose(transformB, transformA))(baseComponent);
+const CounterStreamedComposed = mapPropsStream(
+  compose(
+    transformB,
+    transformA
+  )
+)(baseComponent);
 
 export default CounterStreamedComposed;

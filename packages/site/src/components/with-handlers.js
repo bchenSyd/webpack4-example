@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { compose, withState, withHandlers } from 'recompose';
+import React, { Component } from "react";
+import { compose, withState, withHandlers } from "recompose";
 
 class BaseComponent extends Component {
   componentWillReceiveProps(nextProps) {
@@ -17,7 +17,10 @@ class BaseComponent extends Component {
           from owner props. {"{"} time: {time} {"}"}
         </div>
         <div>
-          <label>count: {count} </label>
+          <label>
+            count:
+            {count}{" "}
+          </label>
           <button onClick={increase}>+</button>
           <button onClick={decrease}>-</button>
           <button onClick={reset}>reset</button>

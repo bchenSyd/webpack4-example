@@ -2,9 +2,11 @@ import React, { Component, createRef } from "react";
 
 class IFrameWrapper extends Component {
   iframeRef = createRef();
+
   onIFrameLoaded = () => {
     console.log("iframe is now loaded...");
   };
+
   componentDidMount() {
     window.addEventListener("message", this.onPostMessage);
   }
@@ -14,13 +16,13 @@ class IFrameWrapper extends Component {
   }
 
   onPostMessage = e => {
-    var frame = this.iframeRef.current;
+    const frame = this.iframeRef.current;
     const {
       data: { message, value }
     } = e;
     switch (message) {
       case "setHeight":
-        frame.height = value + "px";
+        frame.height = `${value}px`;
         break;
       case "complete": {
         const { history } = this.props;
@@ -29,6 +31,7 @@ class IFrameWrapper extends Component {
       }
     }
   };
+
   render() {
     const { frameSource } = this.props;
     return (

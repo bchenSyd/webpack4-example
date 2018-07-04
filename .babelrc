@@ -3,7 +3,7 @@
         [
             "env",
             {
-                "modules": false
+                "modules": false // not converting to commonjs (default behaviour)
             }
         ]
     ],

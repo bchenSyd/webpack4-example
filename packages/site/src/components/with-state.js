@@ -3,7 +3,10 @@ import { withState, withHandlers, withStateHandlers, compose } from "recompose";
 
 const BaseComponent = ({ count, updateCount }) => (
   <div>
-    <label>count: {count} </label>
+    <label>
+      count:
+      {count}{" "}
+    </label>
     <button
       onClick={() => {
         updateCount(n => ++n);
@@ -27,7 +30,4 @@ const BaseComponent = ({ count, updateCount }) => (
     </button>
   </div>
 );
-export default withState("count", "updateCount", 0)(
-  BaseComponent
-);
-
+export default withState("count", "updateCount", 0)(BaseComponent);

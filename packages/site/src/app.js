@@ -4,9 +4,11 @@ import logo from "./styles/logo.svg";
 import Home from "./components/Home";
 import WithState from "./components/with-state";
 import WithHandlers from "./components/with-handlers";
+
 import CounterStreamed from "./components/counter-streamed";
 import CounterStreamedComposed from "./components/counter-streamed-composed";
 import IframeInternal from "./components/iframe-internal";
+
 import IframeExternal from "./components/iframe-external";
 
 const Links = () => (
@@ -34,8 +36,8 @@ const Links = () => (
     </li>
   </ul>
 );
-const App = ({location}) => {
-  //const externalUrl = 'https://protectedapps-test.authbridge-nonprod.westpacgroup.com/rbdev3_sso/start.swe?SWECmd=GetApplet&SWEApplet=WBC+Activity+Form+Applet+-+BD&IsPortlet=1&SWESM=Edit&KeepAlive=1&BCField0=Id&BCFieldValue0=abcde&Scenario=NewToDo'
+const App = ({ location }) => {
+  // const externalUrl = 'https://protectedapps-test.authbridge-nonprod.westpacgroup.com/rbdev3_sso/start.swe?SWECmd=GetApplet&SWEApplet=WBC+Activity+Form+Applet+-+BD&IsPortlet=1&SWESM=Edit&KeepAlive=1&BCField0=Id&BCFieldValue0=abcde&Scenario=NewToDo'
   const externalUrl = "http://localhost:8083";
   return (
     <div className="app">
@@ -57,11 +59,13 @@ const App = ({location}) => {
                 state = {
                   time: Date.now()
                 };
+
                 onClick = () => {
                   this.setState({
                     time: Date.now()
                   });
                 };
+
                 render() {
                   return (
                     <div>
@@ -82,11 +86,15 @@ const App = ({location}) => {
           />
           <Route
             path="/iframe-internal"
-            render={props => <IframeInternal {...props} frameSource="/greenid" />}
+            render={props => (
+              <IframeInternal {...props} frameSource="/greenid" />
+            )}
           />
           <Route
             path="/iframe-external"
-            render={props => <IframeExternal {...props} frameSource={externalUrl} />}
+            render={props => (
+              <IframeExternal {...props} frameSource={externalUrl} />
+            )}
           />
         </Switch>
       </div>

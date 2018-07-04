@@ -1,11 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const NestedPage = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+const NestedPage = () => <div />;
 
 export default NestedPage;
